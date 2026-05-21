@@ -42,8 +42,10 @@
     overflow: hidden;
   }
 
+  /* ── LAYOUT ── */
   .app { display: flex; flex-direction: column; height: 100vh; }
 
+  /* ── TOPBAR ── */
   .topbar {
     display: flex;
     align-items: center;
@@ -65,26 +67,19 @@
     flex-shrink: 0;
     text-decoration: none;
   }
-
   .logo-mark {
-    width: 30px;
-    height: 30px;
+    width: 30px; height: 30px;
     background: var(--accent);
     border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; align-items: center; justify-content: center;
   }
-
   .logo-mark svg { width: 16px; height: 16px; }
-
   .logo-name {
     font-family: var(--font-display);
     font-size: 17px;
     color: var(--text-1);
     letter-spacing: -0.2px;
   }
-
   .logo-badge {
     font-size: 9px;
     font-weight: 600;
@@ -98,6 +93,7 @@
     margin-top: 1px;
   }
 
+  /* Market ticker strip */
   .ticker-strip {
     flex: 1;
     overflow: hidden;
@@ -107,28 +103,16 @@
     align-items: center;
     margin: 0 20px;
   }
-
-  .ticker-strip::before,
-  .ticker-strip::after {
+  .ticker-strip::before, .ticker-strip::after {
     content: '';
     position: absolute;
-    top: 0;
-    bottom: 0;
+    top: 0; bottom: 0;
     width: 40px;
     z-index: 2;
     pointer-events: none;
   }
-
-  .ticker-strip::before {
-    left: 0;
-    background: linear-gradient(to right, var(--navy-2), transparent);
-  }
-
-  .ticker-strip::after {
-    right: 0;
-    background: linear-gradient(to left, var(--navy-2), transparent);
-  }
-
+  .ticker-strip::before { left: 0; background: linear-gradient(to right, var(--navy-2), transparent); }
+  .ticker-strip::after  { right: 0; background: linear-gradient(to left, var(--navy-2), transparent); }
   .ticker-scroll {
     display: flex;
     align-items: center;
@@ -136,12 +120,10 @@
     animation: tickerScroll 30s linear infinite;
     white-space: nowrap;
   }
-
   @keyframes tickerScroll {
-    0% { transform: translateX(0); }
+    0%   { transform: translateX(0); }
     100% { transform: translateX(-50%); }
   }
-
   .ticker-item {
     display: inline-flex;
     align-items: center;
@@ -151,19 +133,18 @@
     font-size: 12px;
     font-family: var(--font-mono);
   }
-
   .t-sym { color: var(--text-2); font-weight: 500; }
   .t-price { color: var(--text-1); }
-  .t-chg.up { color: var(--accent); }
+  .t-chg.up   { color: var(--accent); }
   .t-chg.down { color: var(--red); }
 
+  /* Nav links */
   .nav-links {
     display: flex;
     align-items: center;
     gap: 2px;
     flex-shrink: 0;
   }
-
   .nav-link {
     padding: 6px 14px;
     font-size: 13px;
@@ -177,18 +158,8 @@
     white-space: nowrap;
     border: 1px solid transparent;
   }
-
-  .nav-link:hover {
-    color: var(--text-1);
-    background: var(--card-hover);
-  }
-
-  .nav-link.active {
-    color: var(--accent);
-    background: var(--accent-dim);
-    border-color: var(--accent-glow);
-  }
-
+  .nav-link:hover { color: var(--text-1); background: var(--card-hover); }
+  .nav-link.active { color: var(--accent); background: var(--accent-dim); border-color: var(--accent-glow); }
   .nav-link svg { width: 14px; height: 14px; }
 
   .topbar-right {
@@ -198,43 +169,28 @@
     margin-left: 20px;
     flex-shrink: 0;
   }
-
   .avatar-btn {
-    width: 32px;
-    height: 32px;
+    width: 32px; height: 32px;
     border-radius: 50%;
     background: linear-gradient(135deg, #00C896, #0066FF);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    font-weight: 600;
-    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 600; color: #fff;
     cursor: pointer;
     border: 2px solid var(--border-2);
   }
-
   .icon-btn {
-    width: 32px;
-    height: 32px;
+    width: 32px; height: 32px;
     border-radius: 6px;
     background: var(--card);
     border: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    color: var(--text-2);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; color: var(--text-2);
     transition: all 0.15s;
   }
-
-  .icon-btn:hover {
-    color: var(--text-1);
-    background: var(--card-hover);
-  }
-
+  .icon-btn:hover { color: var(--text-1); background: var(--card-hover); }
   .icon-btn svg { width: 16px; height: 16px; }
 
+  /* ── SECONDARY NAR ── */
   .sub-bar {
     display: flex;
     align-items: center;
@@ -245,12 +201,12 @@
     flex-shrink: 0;
   }
 
+  /* Search */
   .search-wrap {
     flex: 1;
     max-width: 680px;
     position: relative;
   }
-
   .search-input {
     width: 100%;
     background: var(--navy-3);
@@ -263,44 +219,26 @@
     outline: none;
     transition: border-color 0.2s, box-shadow 0.2s;
   }
-
   .search-input::placeholder { color: var(--text-3); }
-
   .search-input:focus {
     border-color: var(--accent);
     box-shadow: 0 0 0 3px var(--accent-dim);
   }
-
   .search-ico {
-    position: absolute;
-    left: 13px;
-    top: 50%;
-    transform: translateY(-50%);
+    position: absolute; left: 13px; top: 50%; transform: translateY(-50%);
     color: var(--text-3);
   }
-
-  .search-ico svg {
-    width: 16px;
-    height: 16px;
-    display: block;
-  }
-
+  .search-ico svg { width: 16px; height: 16px; display: block; }
   .search-btn {
-    position: absolute;
-    right: 6px;
-    top: 50%;
-    transform: translateY(-50%);
+    position: absolute; right: 6px; top: 50%; transform: translateY(-50%);
     background: var(--accent);
     color: var(--navy);
-    font-weight: 600;
-    font-size: 12px;
-    border: none;
-    border-radius: 5px;
+    font-weight: 600; font-size: 12px;
+    border: none; border-radius: 5px;
     padding: 5px 12px;
     cursor: pointer;
     transition: opacity 0.15s;
   }
-
   .search-btn:hover { opacity: 0.85; }
 
   .sub-filters {
@@ -309,7 +247,6 @@
     align-items: center;
     flex-shrink: 0;
   }
-
   .filter-chip {
     padding: 5px 12px;
     border-radius: 20px;
@@ -321,24 +258,17 @@
     transition: all 0.15s;
     white-space: nowrap;
   }
+  .filter-chip:hover { color: var(--text-1); border-color: var(--border-2); }
+  .filter-chip.active { color: var(--accent); background: var(--accent-dim); border-color: var(--accent-glow); }
 
-  .filter-chip:hover {
-    color: var(--text-1);
-    border-color: var(--border-2);
-  }
-
-  .filter-chip.active {
-    color: var(--accent);
-    background: var(--accent-dim);
-    border-color: var(--accent-glow);
-  }
-
+  /* ── MAIN BODY ── */
   .body {
     display: flex;
     flex: 1;
     overflow: hidden;
   }
 
+  /* Left column */
   .left-col {
     flex: 1;
     overflow-y: auto;
@@ -347,14 +277,11 @@
     flex-direction: column;
     gap: 16px;
   }
-
   .left-col::-webkit-scrollbar { width: 4px; }
   .left-col::-webkit-scrollbar-track { background: transparent; }
-  .left-col::-webkit-scrollbar-thumb {
-    background: var(--border-2);
-    border-radius: 2px;
-  }
+  .left-col::-webkit-scrollbar-thumb { background: var(--border-2); border-radius: 2px; }
 
+  /* Right panel */
   .right-panel {
     width: 300px;
     flex-shrink: 0;
@@ -366,21 +293,17 @@
     gap: 16px;
     background: var(--navy-2);
   }
-
   .right-panel::-webkit-scrollbar { width: 4px; }
   .right-panel::-webkit-scrollbar-track { background: transparent; }
-  .right-panel::-webkit-scrollbar-thumb {
-    background: var(--border-2);
-    border-radius: 2px;
-  }
+  .right-panel::-webkit-scrollbar-thumb { background: var(--border-2); border-radius: 2px; }
 
+  /* ── CARDS ── */
   .card {
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: 10px;
     padding: 16px 18px;
   }
-
   .card-title {
     font-size: 11px;
     font-weight: 600;
@@ -392,7 +315,6 @@
     align-items: center;
     justify-content: space-between;
   }
-
   .card-title-action {
     font-size: 11px;
     font-weight: 400;
@@ -402,12 +324,12 @@
     cursor: pointer;
   }
 
+  /* Metrics row */
   .metrics-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
   }
-
   .metric-card {
     background: var(--card);
     border: 1px solid var(--border);
@@ -416,37 +338,14 @@
     cursor: default;
     transition: border-color 0.15s;
   }
-
   .metric-card:hover { border-color: var(--border-2); }
-
-  .metric-label {
-    font-size: 10px;
-    color: var(--text-3);
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    margin-bottom: 6px;
-    text-transform: uppercase;
-  }
-
-  .metric-value {
-    font-family: var(--font-mono);
-    font-size: 18px;
-    font-weight: 500;
-    color: var(--text-1);
-  }
-
-  .metric-change {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    margin-top: 4px;
-    display: flex;
-    align-items: center;
-    gap: 3px;
-  }
-
+  .metric-label { font-size: 10px; color: var(--text-3); font-weight: 500; letter-spacing: 0.5px; margin-bottom: 6px; text-transform: uppercase; }
+  .metric-value { font-family: var(--font-mono); font-size: 18px; font-weight: 500; color: var(--text-1); }
+  .metric-change { font-family: var(--font-mono); font-size: 11px; margin-top: 4px; display: flex; align-items: center; gap: 3px; }
   .metric-change.up { color: var(--accent); }
   .metric-change.down { color: var(--red); }
 
+  /* AI Answer area */
   .answer-box {
     background: var(--card);
     border: 1px solid var(--border);
@@ -454,9 +353,7 @@
     padding: 20px 22px;
     min-height: 120px;
   }
-
   .answer-box.loading { border-color: var(--accent-glow); }
-
   .answer-header {
     display: flex;
     align-items: center;
@@ -465,62 +362,34 @@
     padding-bottom: 12px;
     border-bottom: 1px solid var(--border);
   }
-
   .ai-badge {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
+    display: flex; align-items: center; gap: 5px;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.5px;
     color: var(--accent);
     background: var(--accent-dim);
     border: 1px solid var(--accent-glow);
     border-radius: 5px;
     padding: 3px 8px;
   }
-
   .ai-badge svg { width: 12px; height: 12px; }
-
-  .answer-query {
-    font-size: 13px;
-    color: var(--text-2);
-    flex: 1;
-  }
-
+  .answer-query { font-size: 13px; color: var(--text-2); flex: 1; }
   .answer-content {
     font-size: 14px;
     line-height: 1.75;
     color: var(--text-2);
   }
-
   .answer-content p { margin-bottom: 10px; }
-
-  .answer-content strong {
-    color: var(--text-1);
-    font-weight: 500;
-  }
-
-  .answer-content .highlight {
-    color: var(--accent);
-    font-family: var(--font-mono);
-    font-size: 13px;
-  }
-
+  .answer-content strong { color: var(--text-1); font-weight: 500; }
+  .answer-content .highlight { color: var(--accent); font-family: var(--font-mono); font-size: 13px; }
   .cursor-blink {
     display: inline-block;
-    width: 2px;
-    height: 14px;
+    width: 2px; height: 14px;
     background: var(--accent);
     margin-left: 2px;
     vertical-align: middle;
     animation: blink 1s step-end infinite;
   }
-
-  @keyframes blink {
-    0%,100% { opacity:1; }
-    50% { opacity:0; }
-  }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
 
   .answer-sources {
     display: flex;
@@ -530,32 +399,18 @@
     border-top: 1px solid var(--border);
     flex-wrap: wrap;
   }
-
   .source-pill {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 11px;
-    color: var(--text-3);
+    display: flex; align-items: center; gap: 5px;
+    font-size: 11px; color: var(--text-3);
     background: var(--navy-3);
     border: 1px solid var(--border);
     border-radius: 5px;
     padding: 3px 9px;
   }
+  .source-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--blue); }
 
-  .source-dot {
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: var(--blue);
-  }
-
-  .results-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1px;
-  }
-
+  /* Result items */
+  .results-list { display: flex; flex-direction: column; gap: 1px; }
   .result-item {
     padding: 14px 16px;
     border-radius: 8px;
@@ -565,163 +420,56 @@
     transition: all 0.15s;
     margin-bottom: 8px;
   }
-
-  .result-item:hover {
-    background: var(--card-hover);
-    border-color: var(--border-2);
-  }
-
-  .result-meta {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 5px;
-  }
-
+  .result-item:hover { background: var(--card-hover); border-color: var(--border-2); }
+  .result-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; }
   .result-source-tag {
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.4px;
+    font-size: 10px; font-weight: 600; letter-spacing: 0.4px;
     background: var(--navy-3);
     border: 1px solid var(--border);
     border-radius: 3px;
     padding: 1px 6px;
     color: var(--text-3);
   }
-
-  .result-time {
-    font-size: 11px;
-    color: var(--text-3);
-  }
-
-  .result-title {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--text-1);
-    margin-bottom: 5px;
-    line-height: 1.4;
-  }
-
-  .result-snippet {
-    font-size: 12px;
-    color: var(--text-2);
-    line-height: 1.6;
-  }
-
-  .result-tags {
-    display: flex;
-    gap: 5px;
-    margin-top: 8px;
-    flex-wrap: wrap;
-  }
-
+  .result-time { font-size: 11px; color: var(--text-3); }
+  .result-title { font-size: 13px; font-weight: 500; color: var(--text-1); margin-bottom: 5px; line-height: 1.4; }
+  .result-snippet { font-size: 12px; color: var(--text-2); line-height: 1.6; }
+  .result-tags { display: flex; gap: 5px; margin-top: 8px; flex-wrap: wrap; }
   .r-tag {
-    font-size: 10px;
-    padding: 2px 7px;
-    border-radius: 3px;
-    background: var(--navy-3);
-    color: var(--text-3);
-    border: 1px solid var(--border);
+    font-size: 10px; padding: 2px 7px; border-radius: 3px;
+    background: var(--navy-3); color: var(--text-3); border: 1px solid var(--border);
   }
+  .r-tag.green { background: rgba(0,200,150,0.1); color: var(--accent); border-color: var(--accent-glow); }
+  .r-tag.red   { background: rgba(240,78,55,0.1); color: var(--red); border-color: rgba(240,78,55,0.2); }
+  .r-tag.gold  { background: rgba(240,180,41,0.1); color: var(--gold); border-color: rgba(240,180,41,0.2); }
 
-  .r-tag.green {
-    background: rgba(0,200,150,0.1);
-    color: var(--accent);
-    border-color: var(--accent-glow);
-  }
-
-  .r-tag.red {
-    background: rgba(240,78,55,0.1);
-    color: var(--red);
-    border-color: rgba(240,78,55,0.2);
-  }
-
-  .r-tag.gold {
-    background: rgba(240,180,41,0.1);
-    color: var(--gold);
-    border-color: rgba(240,180,41,0.2);
-  }
-
+  /* Watchlist */
   .watchlist-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display: flex; align-items: center; justify-content: space-between;
     padding: 9px 0;
     border-bottom: 1px solid var(--border);
     cursor: pointer;
     transition: opacity 0.15s;
   }
-
   .watchlist-row:last-child { border-bottom: none; }
-
   .watchlist-row:hover { opacity: 0.8; }
-
-  .w-sym {
-    font-family: var(--font-mono);
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--text-1);
-  }
-
-  .w-name {
-    font-size: 11px;
-    color: var(--text-3);
-    margin-top: 1px;
-  }
-
-  .w-price {
-    font-family: var(--font-mono);
-    font-size: 13px;
-    color: var(--text-1);
-    text-align: right;
-  }
-
-  .w-chg {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    text-align: right;
-  }
-
+  .w-sym { font-family: var(--font-mono); font-size: 13px; font-weight: 500; color: var(--text-1); }
+  .w-name { font-size: 11px; color: var(--text-3); margin-top: 1px; }
+  .w-price { font-family: var(--font-mono); font-size: 13px; color: var(--text-1); text-align: right; }
+  .w-chg { font-family: var(--font-mono); font-size: 11px; text-align: right; }
   .w-chg.up { color: var(--accent); }
   .w-chg.down { color: var(--red); }
 
+  /* Sector bars */
   .sector-row { margin-bottom: 12px; }
   .sector-row:last-child { margin-bottom: 0; }
+  .sector-info { display: flex; justify-content: space-between; margin-bottom: 5px; }
+  .sector-name { font-size: 12px; color: var(--text-2); }
+  .sector-val { font-size: 12px; font-family: var(--font-mono); }
+  .bar-track { height: 4px; background: var(--navy-3); border-radius: 2px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 2px; }
 
-  .sector-info {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 5px;
-  }
-
-  .sector-name {
-    font-size: 12px;
-    color: var(--text-2);
-  }
-
-  .sector-val {
-    font-size: 12px;
-    font-family: var(--font-mono);
-  }
-
-  .bar-track {
-    height: 4px;
-    background: var(--navy-3);
-    border-radius: 2px;
-    overflow: hidden;
-  }
-
-  .bar-fill {
-    height: 100%;
-    border-radius: 2px;
-  }
-
-  .prompts-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-  }
-
+  /* Quick prompts */
+  .prompts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
   .prompt-btn {
     padding: 10px 12px;
     background: var(--card);
@@ -735,76 +483,453 @@
     transition: all 0.15s;
     line-height: 1.4;
   }
-
   .prompt-btn:hover {
     background: var(--card-hover);
     border-color: var(--border-2);
     color: var(--text-1);
   }
 
+  /* Spinner */
   .spinner {
-    width: 16px;
-    height: 16px;
+    width: 16px; height: 16px;
     border: 2px solid var(--border);
     border-top-color: var(--accent);
     border-radius: 50%;
     animation: spin 0.7s linear infinite;
     display: inline-block;
   }
+  @keyframes spin { to { transform: rotate(360deg); } }
 
-  @keyframes spin {
-    to { transform: rotate(360deg); }
-  }
+  /* Error */
+  .error-msg { color: var(--red); font-size: 13px; display: flex; align-items: center; gap: 8px; }
 
-  .error-msg {
-    color: var(--red);
-    font-size: 13px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
+  /* Placeholder welcome */
   .welcome {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 40px 20px;
-    text-align: center;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 40px 20px; text-align: center;
   }
-
   .welcome-icon {
-    width: 48px;
-    height: 48px;
+    width: 48px; height: 48px;
     background: var(--accent-dim);
     border: 1px solid var(--accent-glow);
     border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; align-items: center; justify-content: center;
     margin-bottom: 16px;
   }
+  .welcome-title { font-family: var(--font-display); font-size: 22px; color: var(--text-1); margin-bottom: 8px; }
+  .welcome-sub { font-size: 13px; color: var(--text-3); max-width: 340px; line-height: 1.6; }
 
-  .welcome-title {
-    font-family: var(--font-display);
-    font-size: 22px;
-    color: var(--text-1);
-    margin-bottom: 8px;
-  }
-
-  .welcome-sub {
-    font-size: 13px;
-    color: var(--text-3);
-    max-width: 340px;
-    line-height: 1.6;
-  }
-
-  * {
-    scrollbar-width: thin;
-    scrollbar-color: var(--border-2) transparent;
-  }
+  /* Scrollbar global */
+  * { scrollbar-width: thin; scrollbar-color: var(--border-2) transparent; }
 </style>
 </head>
 <body>
+<div class="app">
+
+  <!-- ── TOP NAV BAR ── -->
+  <header class="topbar">
+    <a class="logo" href="#">
+      <div class="logo-mark">
+        <svg viewBox="0 0 16 16" fill="none">
+          <path d="M3 13L8 3L13 13" stroke="#0A0F1E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M5 9.5H11" stroke="#0A0F1E" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <span class="logo-name">Kriyagni</span>
+      <span class="logo-badge">Finance AI</span>
+    </a>
+
+    <!-- Live ticker -->
+    <div class="ticker-strip">
+      <div class="ticker-scroll" id="tickerScroll"></div>
+    </div>
+
+    <!-- Nav links -->
+    <nav class="nav-links">
+      <div class="nav-link active" onclick="setNav(this)">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="7" cy="7" r="5"/><path d="m11 11 3 3" stroke-linecap="round"/></svg>
+        Research
+      </div>
+      <div class="nav-link" onclick="setNav(this)">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="2 12 6 7 10 9 14 4"/></svg>
+        Markets
+      </div>
+      <div class="nav-link" onclick="setNav(this)">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="12" height="10" rx="1.5"/><path d="M5 7h6M5 10h4" stroke-linecap="round"/></svg>
+        Reports
+      </div>
+      <div class="nav-link" onclick="setNav(this)">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 14V6l6-4 6 4v8"/><path d="M6 14v-5h4v5"/></svg>
+        Sectors
+      </div>
+      <div class="nav-link" onclick="setNav(this)">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="5" r="3"/><path d="M1 14c0-3 2.5-4 5-4s5 1 5 4"/><circle cx="13" cy="7" r="2"/><path d="M11 14c0-2 .9-3 2-3"/></svg>
+        Team
+      </div>
+    </nav>
+
+    <div class="topbar-right">
+      <div class="icon-btn" title="Notifications">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2a5 5 0 0 1 5 5v2.5l1 2H2l1-2V7a5 5 0 0 1 5-5z"/><path d="M6.5 13.5a1.5 1.5 0 0 0 3 0" stroke-linecap="round"/></svg>
+      </div>
+      <div class="icon-btn" title="Settings">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="2.5"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3.1 3.1l1.4 1.4M11.5 11.5l1.4 1.4M3.1 12.9l1.4-1.4M11.5 4.5l1.4-1.4"/></svg>
+      </div>
+      <div class="avatar-btn">HB</div>
+    </div>
+  </header>
+
+  <!-- ── SEARCH SUB-BAR ── -->
+  <div class="sub-bar">
+    <div class="search-wrap">
+      <div class="search-ico">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="7" cy="7" r="5"/><path d="m11 11 3 3" stroke-linecap="round"/></svg>
+      </div>
+      <input id="searchInput" class="search-input" type="text"
+        placeholder="Ask anything about companies, markets, filings, macro trends…"
+        onkeydown="if(event.key==='Enter') runSearch()" />
+      <button class="search-btn" onclick="runSearch()">Analyse →</button>
+    </div>
+    <div class="sub-filters">
+      <div class="filter-chip active" onclick="setFilter(this)">All</div>
+      <div class="filter-chip" onclick="setFilter(this)">Equities</div>
+      <div class="filter-chip" onclick="setFilter(this)">Macro</div>
+      <div class="filter-chip" onclick="setFilter(this)">Filings</div>
+      <div class="filter-chip" onclick="setFilter(this)">Bonds</div>
+      <div class="filter-chip" onclick="setFilter(this)">Crypto</div>
+    </div>
+  </div>
+
+  <!-- ── BODY ── -->
+  <div class="body">
+
+    <!-- LEFT MAIN COLUMN -->
+    <main class="left-col">
+
+      <!-- Market metrics -->
+      <div class="metrics-grid" id="metricsGrid"></div>
+
+      <!-- AI Answer -->
+      <div class="answer-box" id="answerBox">
+        <div class="welcome">
+          <div class="welcome-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35" stroke-linecap="round"/>
+              <path d="M11 8v6M8 11h6" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="welcome-title">Finance Intelligence at your fingertips</div>
+          <div class="welcome-sub">Ask about any stock, sector, macro event, or company — Kriyagni AI will analyse and synthesise insights in real time.</div>
+        </div>
+      </div>
+
+      <!-- Quick prompts -->
+      <div class="card">
+        <div class="card-title">Suggested Research</div>
+        <div class="prompts-grid" id="promptsGrid"></div>
+      </div>
+
+      <!-- Recent results -->
+      <div id="resultsSection" style="display:none">
+        <div class="card-title" style="margin-bottom:10px; font-size:11px; font-weight:600; letter-spacing:0.8px; text-transform:uppercase; color:var(--text-3);">Related News & Filings</div>
+        <div class="results-list" id="resultsList"></div>
+      </div>
+
+    </main>
+
+    <!-- RIGHT PANEL -->
+    <aside class="right-panel">
+
+      <!-- Watchlist -->
+      <div class="card">
+        <div class="card-title">Watchlist <span class="card-title-action">Edit</span></div>
+        <div id="watchlistEl"></div>
+      </div>
+
+      <!-- Sector sentiment -->
+      <div class="card">
+        <div class="card-title">Sector Pulse</div>
+        <div id="sectorEl"></div>
+      </div>
+
+      <!-- LLM selector -->
+      <div class="card">
+        <div class="card-title">AI Model</div>
+        <select id="modelSelect" style="width:100%; background:var(--navy-3); border:1px solid var(--border-2); border-radius:6px; color:var(--text-1); font-family:var(--font-body); font-size:13px; padding:8px 10px; outline:none; cursor:pointer;">
+          <option value="claude-sonnet-4-20250514">Claude Sonnet 4 (Default)</option>
+          <option value="claude-opus-4-20250514">Claude Opus 4 (Advanced)</option>
+          <option value="claude-haiku-4-5-20251001">Claude Haiku 4.5 (Fast)</option>
+        </select>
+        <div style="font-size:11px; color:var(--text-3); margin-top:8px; line-height:1.5;">Powered by Anthropic. All queries are finance-context optimised.</div>
+      </div>
+
+    </aside>
+  </div>
+</div>
+
+<script>
+// ── DATA ──
+const TICKERS = [
+  { sym:'NIFTY 50',  price:'24,872', chg:'+1.4%', up:true },
+  { sym:'SENSEX',    price:'81,430', chg:'+1.1%', up:true },
+  { sym:'USD/INR',   price:'83.42',  chg:'-0.2%', up:false },
+  { sym:'10Y YIELD', price:'6.87%',  chg:'-3bps', up:false },
+  { sym:'GOLD',      price:'₹71,240',chg:'+0.6%', up:true },
+  { sym:'CRUDE WTI', price:'$91.20', chg:'+1.8%', up:true },
+  { sym:'BTC/USD',   price:'$67,810',chg:'+2.1%', up:true },
+  { sym:'RELIANCE',  price:'₹2,941', chg:'+2.3%', up:true },
+  { sym:'TCS',       price:'₹3,812', chg:'-0.4%', up:false },
+  { sym:'HDFC BANK', price:'₹1,682', chg:'+0.8%', up:true },
+];
+
+const METRICS = [
+  { label:'NIFTY 50', value:'24,872', change:'+312 (1.4%)', up:true },
+  { label:'SENSEX',   value:'81,430', change:'+890 (1.1%)', up:true },
+  { label:'USD / INR',value:'83.42',  change:'-0.17 (0.2%)', up:false },
+  { label:'10Y Bond', value:'6.87%',  change:'-3 bps', up:false },
+];
+
+const WATCHLIST = [
+  { sym:'RELIANCE', name:'Reliance Ind.',  price:'₹2,941', chg:'+2.3%', up:true },
+  { sym:'HDFCBANK', name:'HDFC Bank',      price:'₹1,682', chg:'+0.8%', up:true },
+  { sym:'TCS',      name:'Tata Consult.', price:'₹3,812', chg:'-0.4%', up:false },
+  { sym:'INFY',     name:'Infosys',        price:'₹1,490', chg:'-1.1%', up:false },
+  { sym:'ICICIBANK',name:'ICICI Bank',     price:'₹1,108', chg:'+1.6%', up:true },
+  { sym:'WIPRO',    name:'Wipro',          price:'₹462',   chg:'+0.3%', up:true },
+];
+
+const SECTORS = [
+  { name:'Banking & Finance', val:78, color:'#00C896', label:'Bullish' },
+  { name:'Energy & Oil',      val:52, color:'#3B82F6', label:'Neutral' },
+  { name:'IT & Software',     val:35, color:'#F0B429', label:'Cautious' },
+  { name:'FMCG & Retail',     val:70, color:'#00C896', label:'Bullish' },
+  { name:'Pharma & Health',   val:60, color:'#3B82F6', label:'Neutral' },
+];
+
+const PROMPTS = [
+  'Analyse Reliance Q4 FY25 earnings',
+  'Compare HDFC vs ICICI Bank outlook',
+  'India inflation impact on RBI policy',
+  'Best performing Nifty 50 sectors 2025',
+  'Adani Group debt restructuring update',
+  'Mid-cap IT stocks to watch in FY26',
+];
+
+const STATIC_RESULTS = [
+  {
+    source:'BSE Filings', time:'2h ago',
+    title:'Reliance Industries posts 8.2% YoY revenue growth in Q4 FY25',
+    snippet:'Consolidated revenue reached ₹2.58L Cr, driven by strong Jio platform growth (+19%) and retail segment expansion.',
+    tags:[{label:'Earnings',cls:'green'},{label:'Energy',cls:''},{label:'RIL',cls:''}]
+  },
+  {
+    source:'Bloomberg', time:'4h ago',
+    title:'15 of 18 analysts maintain Buy rating on Reliance; avg target ₹3,240',
+    snippet:'Bullish on Jio Financial Services demerger value unlock and 5G monetisation. Key risk: upstream capex and global petrochemical headwinds.',
+    tags:[{label:'Buy Signal',cls:'green'},{label:'Analyst',cls:''}]
+  },
+  {
+    source:'Reuters', time:'6h ago',
+    title:'Rising Brent crude above $91 poses margin risk for O2C division',
+    snippet:'O2C segment (~43% of EBITDA) faces pressure if crude sustains above $90/bbl. Management guided hedging cover through Q1 FY26.',
+    tags:[{label:'Risk',cls:'red'},{label:'Commodities',cls:'gold'}]
+  },
+];
+
+// ── RENDER TICKER ──
+function renderTicker() {
+  const el = document.getElementById('tickerScroll');
+  const all = [...TICKERS, ...TICKERS]; // duplicate for seamless loop
+  el.innerHTML = all.map(t =>
+    `<span class="ticker-item">
+      <span class="t-sym">${t.sym}</span>
+      <span class="t-price">${t.price}</span>
+      <span class="t-chg ${t.up?'up':'down'}">${t.chg}</span>
+    </span>`
+  ).join('');
+}
+
+// ── RENDER METRICS ──
+function renderMetrics() {
+  document.getElementById('metricsGrid').innerHTML = METRICS.map(m =>
+    `<div class="metric-card">
+      <div class="metric-label">${m.label}</div>
+      <div class="metric-value">${m.value}</div>
+      <div class="metric-change ${m.up?'up':'down'}">
+        ${m.up?'▲':'▼'} ${m.change}
+      </div>
+    </div>`
+  ).join('');
+}
+
+// ── RENDER WATCHLIST ──
+function renderWatchlist() {
+  document.getElementById('watchlistEl').innerHTML = WATCHLIST.map(w =>
+    `<div class="watchlist-row">
+      <div>
+        <div class="w-sym">${w.sym}</div>
+        <div class="w-name">${w.name}</div>
+      </div>
+      <div>
+        <div class="w-price">${w.price}</div>
+        <div class="w-chg ${w.up?'up':'down'}">${w.chg}</div>
+      </div>
+    </div>`
+  ).join('');
+}
+
+// ── RENDER SECTORS ──
+function renderSectors() {
+  document.getElementById('sectorEl').innerHTML = SECTORS.map(s =>
+    `<div class="sector-row">
+      <div class="sector-info">
+        <span class="sector-name">${s.name}</span>
+        <span class="sector-val" style="color:${s.color}">${s.label}</span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width:${s.val}%;background:${s.color}"></div>
+      </div>
+    </div>`
+  ).join('');
+}
+
+// ── RENDER PROMPTS ──
+function renderPrompts() {
+  document.getElementById('promptsGrid').innerHTML = PROMPTS.map(p =>
+    `<button class="prompt-btn" onclick="usePrompt('${p}')">${p}</button>`
+  ).join('');
+}
+
+function usePrompt(text) {
+  document.getElementById('searchInput').value = text;
+  runSearch();
+}
+
+// ── NAV / FILTER ──
+function setNav(el) {
+  document.querySelectorAll('.nav-link').forEach(n => n.classList.remove('active'));
+  el.classList.add('active');
+}
+function setFilter(el) {
+  document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+}
+
+// ── SEARCH ──
+async function runSearch() {
+  const query = document.getElementById('searchInput').value.trim();
+  if (!query) return;
+
+  const model = document.getElementById('modelSelect').value;
+  const box = document.getElementById('answerBox');
+
+  // Show loading state
+  box.className = 'answer-box loading';
+  box.innerHTML = `
+    <div class="answer-header">
+      <div class="ai-badge">
+        <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="6" r="4"/><path d="M6 4v2l1.5 1.5" stroke-linecap="round"/></svg>
+        Kriyagni AI
+      </div>
+      <div class="answer-query">${escHtml(query)}</div>
+      <div class="spinner"></div>
+    </div>
+    <div class="answer-content" id="streamContent">
+      <p style="color:var(--text-3)">Analysing markets and synthesising insights…</p>
+    </div>`;
+
+  // Show static results
+  const rSec = document.getElementById('resultsSection');
+  rSec.style.display = 'block';
+  document.getElementById('resultsList').innerHTML = STATIC_RESULTS.map(r =>
+    `<div class="result-item">
+      <div class="result-meta">
+        <span class="result-source-tag">${r.source}</span>
+        <span class="result-time">${r.time}</span>
+      </div>
+      <div class="result-title">${r.title}</div>
+      <div class="result-snippet">${r.snippet}</div>
+      <div class="result-tags">${r.tags.map(t=>`<span class="r-tag ${t.cls}">${t.label}</span>`).join('')}</div>
+    </div>`
+  ).join('');
+
+  try {
+    const SYSTEM = `You are Kriyagni AI — an elite financial research analyst specialising in Indian and global markets. 
+You provide precise, data-driven analysis for professional finance users (fund managers, analysts, CFOs).
+Format your response in clear paragraphs. Use specific numbers, percentages, and financial terminology.
+Keep responses focused, insightful, and around 200-280 words. Structure: brief summary → key data points → risks/opportunities → outlook.
+Never use bullet points — write in fluid, professional prose. Bold important numbers or terms with **bold**.`;
+
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model,
+        max_tokens: 1000,
+        system: SYSTEM,
+        messages: [{ role: 'user', content: query }]
+      })
+    });
+
+    const data = await res.json();
+
+    if (data.error) throw new Error(data.error.message || 'API error');
+
+    const text = data.content?.map(b => b.text || '').join('') || '';
+    const html = formatResponse(text);
+
+    box.className = 'answer-box';
+    box.innerHTML = `
+      <div class="answer-header">
+        <div class="ai-badge">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 9L6 3L10 9" stroke-linecap="round" stroke-linejoin="round"/><path d="M3.5 7h5" stroke-linecap="round"/></svg>
+          Kriyagni AI
+        </div>
+        <div class="answer-query">${escHtml(query)}</div>
+      </div>
+      <div class="answer-content">${html}</div>
+      <div class="answer-sources">
+        <div class="source-pill"><div class="source-dot"></div>BSE Filings</div>
+        <div class="source-pill"><div class="source-dot" style="background:var(--gold)"></div>Bloomberg</div>
+        <div class="source-pill"><div class="source-dot" style="background:var(--accent)"></div>Reuters</div>
+        <div class="source-pill"><div class="source-dot" style="background:var(--red)"></div>SEBI Data</div>
+      </div>`;
+
+  } catch (err) {
+    box.className = 'answer-box';
+    box.innerHTML = `
+      <div class="answer-header">
+        <div class="ai-badge">Kriyagni AI</div>
+        <div class="answer-query">${escHtml(query)}</div>
+      </div>
+      <div class="answer-content">
+        <div class="error-msg">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="var(--red)" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="M8 5v3M8 11v.5" stroke-linecap="round"/></svg>
+          ${escHtml(err.message)}. Please add your Anthropic API key — open the HTML file and set it at the top of the script, or run via a local server that proxies the key.
+        </div>
+      </div>`;
+  }
+}
+
+// ── HELPERS ──
+function escHtml(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function formatResponse(text) {
+  // Convert **bold** to <strong>
+  let html = text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  // Wrap paragraphs
+  html = html.split(/\n\n+/).map(p => `<p>${p.replace(/\n/g,' ')}</p>`).join('');
+  return html;
+}
+
+// ── INIT ──
+renderTicker();
+renderMetrics();
+renderWatchlist();
+renderSectors();
+renderPrompts();
+</script>
 </body>
 </html>
