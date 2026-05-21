@@ -42,10 +42,8 @@
     overflow: hidden;
   }
 
-  /* ── LAYOUT ── */
   .app { display: flex; flex-direction: column; height: 100vh; }
 
-  /* ── TOPBAR ── */
   .topbar {
     display: flex;
     align-items: center;
@@ -93,7 +91,6 @@
     margin-top: 1px;
   }
 
-  /* Market ticker strip */
   .ticker-strip {
     flex: 1;
     overflow: hidden;
@@ -138,7 +135,6 @@
   .t-chg.up   { color: var(--accent); }
   .t-chg.down { color: var(--red); }
 
-  /* Nav links */
   .nav-links {
     display: flex;
     align-items: center;
@@ -190,7 +186,6 @@
   .icon-btn:hover { color: var(--text-1); background: var(--card-hover); }
   .icon-btn svg { width: 16px; height: 16px; }
 
-  /* ── SECONDARY NAR ── */
   .sub-bar {
     display: flex;
     align-items: center;
@@ -201,7 +196,6 @@
     flex-shrink: 0;
   }
 
-  /* Search */
   .search-wrap {
     flex: 1;
     max-width: 680px;
@@ -261,14 +255,12 @@
   .filter-chip:hover { color: var(--text-1); border-color: var(--border-2); }
   .filter-chip.active { color: var(--accent); background: var(--accent-dim); border-color: var(--accent-glow); }
 
-  /* ── MAIN BODY ── */
   .body {
     display: flex;
     flex: 1;
     overflow: hidden;
   }
 
-  /* Left column */
   .left-col {
     flex: 1;
     overflow-y: auto;
@@ -281,7 +273,6 @@
   .left-col::-webkit-scrollbar-track { background: transparent; }
   .left-col::-webkit-scrollbar-thumb { background: var(--border-2); border-radius: 2px; }
 
-  /* Right panel */
   .right-panel {
     width: 300px;
     flex-shrink: 0;
@@ -297,7 +288,6 @@
   .right-panel::-webkit-scrollbar-track { background: transparent; }
   .right-panel::-webkit-scrollbar-thumb { background: var(--border-2); border-radius: 2px; }
 
-  /* ── CARDS ── */
   .card {
     background: var(--card);
     border: 1px solid var(--border);
@@ -324,7 +314,6 @@
     cursor: pointer;
   }
 
-  /* Metrics row */
   .metrics-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -345,7 +334,6 @@
   .metric-change.up { color: var(--accent); }
   .metric-change.down { color: var(--red); }
 
-  /* AI Answer area */
   .answer-box {
     background: var(--card);
     border: 1px solid var(--border);
@@ -409,7 +397,6 @@
   }
   .source-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--blue); }
 
-  /* Result items */
   .results-list { display: flex; flex-direction: column; gap: 1px; }
   .result-item {
     padding: 14px 16px;
@@ -442,7 +429,6 @@
   .r-tag.red   { background: rgba(240,78,55,0.1); color: var(--red); border-color: rgba(240,78,55,0.2); }
   .r-tag.gold  { background: rgba(240,180,41,0.1); color: var(--gold); border-color: rgba(240,180,41,0.2); }
 
-  /* Watchlist */
   .watchlist-row {
     display: flex; align-items: center; justify-content: space-between;
     padding: 9px 0;
@@ -459,7 +445,6 @@
   .w-chg.up { color: var(--accent); }
   .w-chg.down { color: var(--red); }
 
-  /* Sector bars */
   .sector-row { margin-bottom: 12px; }
   .sector-row:last-child { margin-bottom: 0; }
   .sector-info { display: flex; justify-content: space-between; margin-bottom: 5px; }
@@ -468,7 +453,6 @@
   .bar-track { height: 4px; background: var(--navy-3); border-radius: 2px; overflow: hidden; }
   .bar-fill { height: 100%; border-radius: 2px; }
 
-  /* Quick prompts */
   .prompts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
   .prompt-btn {
     padding: 10px 12px;
@@ -489,7 +473,6 @@
     color: var(--text-1);
   }
 
-  /* Spinner */
   .spinner {
     width: 16px; height: 16px;
     border: 2px solid var(--border);
@@ -500,10 +483,8 @@
   }
   @keyframes spin { to { transform: rotate(360deg); } }
 
-  /* Error */
   .error-msg { color: var(--red); font-size: 13px; display: flex; align-items: center; gap: 8px; }
 
-  /* Placeholder welcome */
   .welcome {
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     padding: 40px 20px; text-align: center;
@@ -519,14 +500,12 @@
   .welcome-title { font-family: var(--font-display); font-size: 22px; color: var(--text-1); margin-bottom: 8px; }
   .welcome-sub { font-size: 13px; color: var(--text-3); max-width: 340px; line-height: 1.6; }
 
-  /* Scrollbar global */
   * { scrollbar-width: thin; scrollbar-color: var(--border-2) transparent; }
 </style>
 </head>
 <body>
 <div class="app">
 
-  <!-- ── TOP NAV BAR ── -->
   <header class="topbar">
     <a class="logo" href="#">
       <div class="logo-mark">
@@ -539,12 +518,10 @@
       <span class="logo-badge">Finance AI</span>
     </a>
 
-    <!-- Live ticker -->
     <div class="ticker-strip">
       <div class="ticker-scroll" id="tickerScroll"></div>
     </div>
 
-    <!-- Nav links -->
     <nav class="nav-links">
       <div class="nav-link active" onclick="setNav(this)">
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="7" cy="7" r="5"/><path d="m11 11 3 3" stroke-linecap="round"/></svg>
@@ -579,7 +556,6 @@
     </div>
   </header>
 
-  <!-- ── SEARCH SUB-BAR ── -->
   <div class="sub-bar">
     <div class="search-wrap">
       <div class="search-ico">
@@ -600,16 +576,12 @@
     </div>
   </div>
 
-  <!-- ── BODY ── -->
   <div class="body">
 
-    <!-- LEFT MAIN COLUMN -->
     <main class="left-col">
 
-      <!-- Market metrics -->
       <div class="metrics-grid" id="metricsGrid"></div>
 
-      <!-- AI Answer -->
       <div class="answer-box" id="answerBox">
         <div class="welcome">
           <div class="welcome-icon">
@@ -623,13 +595,11 @@
         </div>
       </div>
 
-      <!-- Quick prompts -->
       <div class="card">
         <div class="card-title">Suggested Research</div>
         <div class="prompts-grid" id="promptsGrid"></div>
       </div>
 
-      <!-- Recent results -->
       <div id="resultsSection" style="display:none">
         <div class="card-title" style="margin-bottom:10px; font-size:11px; font-weight:600; letter-spacing:0.8px; text-transform:uppercase; color:var(--text-3);">Related News & Filings</div>
         <div class="results-list" id="resultsList"></div>
@@ -637,22 +607,18 @@
 
     </main>
 
-    <!-- RIGHT PANEL -->
     <aside class="right-panel">
 
-      <!-- Watchlist -->
       <div class="card">
         <div class="card-title">Watchlist <span class="card-title-action">Edit</span></div>
         <div id="watchlistEl"></div>
       </div>
 
-      <!-- Sector sentiment -->
       <div class="card">
         <div class="card-title">Sector Pulse</div>
         <div id="sectorEl"></div>
       </div>
 
-      <!-- LLM selector -->
       <div class="card">
         <div class="card-title">AI Model</div>
         <select id="modelSelect" style="width:100%; background:var(--navy-3); border:1px solid var(--border-2); border-radius:6px; color:var(--text-1); font-family:var(--font-body); font-size:13px; padding:8px 10px; outline:none; cursor:pointer;">
@@ -668,7 +634,6 @@
 </div>
 
 <script>
-// ── DATA ──
 const TICKERS = [
   { sym:'NIFTY 50',  price:'24,872', chg:'+1.4%', up:true },
   { sym:'SENSEX',    price:'81,430', chg:'+1.1%', up:true },
@@ -736,10 +701,9 @@ const STATIC_RESULTS = [
   },
 ];
 
-// ── RENDER TICKER ──
 function renderTicker() {
   const el = document.getElementById('tickerScroll');
-  const all = [...TICKERS, ...TICKERS]; // duplicate for seamless loop
+  const all = [...TICKERS, ...TICKERS];
   el.innerHTML = all.map(t =>
     `<span class="ticker-item">
       <span class="t-sym">${t.sym}</span>
@@ -749,7 +713,6 @@ function renderTicker() {
   ).join('');
 }
 
-// ── RENDER METRICS ──
 function renderMetrics() {
   document.getElementById('metricsGrid').innerHTML = METRICS.map(m =>
     `<div class="metric-card">
@@ -762,7 +725,6 @@ function renderMetrics() {
   ).join('');
 }
 
-// ── RENDER WATCHLIST ──
 function renderWatchlist() {
   document.getElementById('watchlistEl').innerHTML = WATCHLIST.map(w =>
     `<div class="watchlist-row">
@@ -778,7 +740,6 @@ function renderWatchlist() {
   ).join('');
 }
 
-// ── RENDER SECTORS ──
 function renderSectors() {
   document.getElementById('sectorEl').innerHTML = SECTORS.map(s =>
     `<div class="sector-row">
@@ -793,7 +754,6 @@ function renderSectors() {
   ).join('');
 }
 
-// ── RENDER PROMPTS ──
 function renderPrompts() {
   document.getElementById('promptsGrid').innerHTML = PROMPTS.map(p =>
     `<button class="prompt-btn" onclick="usePrompt('${p}')">${p}</button>`
@@ -805,7 +765,6 @@ function usePrompt(text) {
   runSearch();
 }
 
-// ── NAV / FILTER ──
 function setNav(el) {
   document.querySelectorAll('.nav-link').forEach(n => n.classList.remove('active'));
   el.classList.add('active');
@@ -815,7 +774,6 @@ function setFilter(el) {
   el.classList.add('active');
 }
 
-// ── SEARCH ──
 async function runSearch() {
   const query = document.getElementById('searchInput').value.trim();
   if (!query) return;
@@ -823,7 +781,6 @@ async function runSearch() {
   const model = document.getElementById('modelSelect').value;
   const box = document.getElementById('answerBox');
 
-  // Show loading state
   box.className = 'answer-box loading';
   box.innerHTML = `
     <div class="answer-header">
@@ -838,7 +795,6 @@ async function runSearch() {
       <p style="color:var(--text-3)">Analysing markets and synthesising insights…</p>
     </div>`;
 
-  // Show static results
   const rSec = document.getElementById('resultsSection');
   rSec.style.display = 'block';
   document.getElementById('resultsList').innerHTML = STATIC_RESULTS.map(r =>
@@ -911,20 +867,16 @@ Never use bullet points — write in fluid, professional prose. Bold important n
   }
 }
 
-// ── HELPERS ──
 function escHtml(s) {
   return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 
 function formatResponse(text) {
-  // Convert **bold** to <strong>
   let html = text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-  // Wrap paragraphs
   html = html.split(/\n\n+/).map(p => `<p>${p.replace(/\n/g,' ')}</p>`).join('');
   return html;
 }
 
-// ── INIT ──
 renderTicker();
 renderMetrics();
 renderWatchlist();
